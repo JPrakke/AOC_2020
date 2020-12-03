@@ -38,4 +38,19 @@ def challenge_1(passwords, rules):
         incorrect: {incorrect_passwords}    
     ''')
 
-challenge_1(passwords, rules)
+def challenge_2(passwords, rules):
+    correct_passwords = 0
+    incorrect_passwords = 0
+    input_parser(input_file)
+
+    for i in range(len(passwords)):
+        if passwords[i][int(rules[i][0])- 1] == rules[i][2] and passwords[i][int(rules[i][1])- 1] == rules[i][2]:
+            incorrect_passwords +=1
+        elif passwords[i][int(rules[i][0])- 1] == rules[i][2] and passwords[i][int(rules[i][1])- 1] != rules[i][2]:
+            correct_passwords += 1
+        elif passwords[i][int(rules[i][0])- 1] != rules[i][2] and passwords[i][int(rules[i][1])- 1] == rules[i][2]:
+            correct_passwords += 1
+        else:
+            incorrect_passwords +=1
+        print(correct_passwords)
+challenge_2(passwords, rules)
